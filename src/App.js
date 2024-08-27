@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import MainComponent from "./components/MainComponent";
+import { UserContext } from "./context/UserContext";
+
+// Напишите провайдер контекста, который будет управлять данными пользователя (примеры полей: логин,
+//   email) и статусом регистрации (зарегистрирован пользователь или нет).
 
 function App() {
+  // const [login, setLogin] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [isRegistered, setIsRegistered] = useState(false);
+
+  const [userData, setUserData] = useState({
+    login: "",
+    email: "",
+    isRegistered: false,
+  });
+  //   ● loginUser(data): Эта функция принимает данные пользователя и обновляет
+  //   состояния для хранения данных
+  // пользователя и статуса его регистрации.
+  // ● logoutUser(): Функция обнуляет информацию о пользователе и изменяет статус на "не зарегистрирован".
+  function loginUser(data) {
+    // setLogin(data);
+    // setEmail(data);
+    // setIsRegistered(true);
+    setUserData({
+      login: data.login,
+      email: data.email,
+      isRegistered: true,
+    });
+  }
+
+  function logautUser() {
+    setUserData({
+      ...userData,
+      isRegistered: false,
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider
+      value={{
+        loginUser,
+        logautUser,
+        // login,
+        // email,
+        // isRegistered,
+        // setLogin,
+        // setEmail,
+        // setIsRegistered,
+        userData,
+        setUserData,
+      }}
+    >
+      <MainComponent />
+    </UserContext.Provider>
   );
 }
 
