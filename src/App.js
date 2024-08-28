@@ -53,7 +53,10 @@ function App() {
         setUserData,
       }}
     >
-      <MainComponent />
+      <div className="App">
+        {!userData.isRegistered && <h1>Welcomen to webseite</h1>}
+        <MainComponent />
+      </div>
     </UserContext.Provider>
   );
 }

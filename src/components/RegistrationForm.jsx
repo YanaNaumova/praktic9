@@ -4,6 +4,7 @@ import { UserContext } from "../context/UserContext";
 import UIInput from "./Input";
 import formInfo from "../utils/validations";
 import UserProfile from "../components/UserProfile";
+import styles from "../styles/RegistrationForm.module.css";
 
 function RegistrationForm() {
   const { loginUser, userData } = useContext(UserContext);
@@ -25,11 +26,11 @@ function RegistrationForm() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       {isEmpty(errors) && userData.isRegistered ? (
         <UserProfile />
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.formStyle}>
           {formInfo.map((field, ind) => {
             return (
               <UIInput
@@ -40,10 +41,10 @@ function RegistrationForm() {
               />
             );
           })}
-          <button>Отправить</button>
+          <button className={styles.btn}>Registration</button>
         </form>
       )}
-    </>
+    </div>
   );
   //
   //   /* <label htmlFor="login">Login</label>

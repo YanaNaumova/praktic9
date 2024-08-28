@@ -1,0 +1,21 @@
+.container {
+  background-color: #97a0b7;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: #343681;
+  color: #cdcee7;
+  border: none;
+  padding: 5px;
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

@@ -1,3 +1,5 @@
+import styles from "../styles/UIInput.module.css";
+
 function UIInput({
   htmlFor,
   labelTitle,
@@ -9,10 +11,21 @@ function UIInput({
   errors,
 }) {
   return (
-    <div>
-      <label htmlFor={htmlFor}>{labelTitle}</label>
-      <input id={id} type={type} {...register(name, validation)} />
-      {errors[name] && <p>{errors[name].message}</p>}
+    <div className={styles.container}>
+      <div className={styles.inputContainer}>
+        <label htmlFor={htmlFor} className={styles.labelStyle}>
+          {labelTitle}
+        </label>
+        <input
+          id={id}
+          type={type}
+          {...register(name, validation)}
+          className={styles.inputStyle}
+        />
+      </div>
+      {errors[name] && (
+        <p className={styles.errorMessage}>{errors[name].message}</p>
+      )}
     </div>
   );
 }

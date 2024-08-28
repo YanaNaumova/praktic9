@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelStyle {
+  color: #cdcee7;
+}
+
+.inputStyle {
+  background-color: #a7d6e4;
+  border: 2px solid #536b7a;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: red;
+}
